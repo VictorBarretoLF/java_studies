@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+
+  postgresql:
+    image: postgres:15-alpine
+    container_name: postgresql
+    restart: always
+    platform: linux/amd64
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: adopet
+    ports:
+      - 5432:5432
