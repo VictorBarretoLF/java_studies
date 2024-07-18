@@ -17,9 +17,23 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 class ValidacaoPetDisponivelTest {
 
+    /**
+     * Anotação @InjectMocks
+     *
+     * Objetivo: Criar uma instância da classe que está sendo testada e injetar automaticamente os mocks nas dependências dessa classe.
+     *
+     * Quando usar: Utilize @InjectMocks quando quiser testar uma classe em si, com suas dependências simuladas sendo injetadas automaticamente.
+     */
     @InjectMocks
     private ValidacaoPetDisponivel validacaoPetDisponivel;
 
+    /**
+     * Anotação @Mock
+     *
+     * Objetivo: Criar objetos simulados para testar comportamentos específicos sem depender das implementações reais.
+     *
+     * Quando usar: Utilize @Mock quando precisar de uma dependência simulada para testar uma classe isoladamente.
+     */
     @Mock
     private PetRepository petRepository;
 
