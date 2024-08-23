@@ -1,0 +1,28 @@
+# Using a multi-stage build to keep the final image clean and secure
+FROM --platform=linux/amd64 node:18 AS builder
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+FROM --platform=linux/amd64 node:18
+
+RUN apt-get update && apt-get install -y ffmpeg
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install --only=production
+
+COPY --from=builder /app/dist ./dist
+
+EXPOSE 3000
+
+CMD ["npm", "run", "serve"]
