@@ -3,23 +3,24 @@ package com.victorbarreto.hexagonal.adapters.out;
 import com.victorbarreto.hexagonal.adapters.out.repository.CustomerEntityRepository;
 import com.victorbarreto.hexagonal.adapters.out.repository.mapper.CustomerEntityMapper;
 import com.victorbarreto.hexagonal.application.core.domain.Customer;
-import com.victorbarreto.hexagonal.application.ports.out.InsertCustomerOutputPort;
+import com.victorbarreto.hexagonal.application.ports.out.FindCustomerByIdOutputPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
-public class InsertCustomerAdapter implements InsertCustomerOutputPort {
+public class FindCustomerByIdAdapter implements FindCustomerByIdOutputPort {
 
     @Autowired
-    private CustomerEntityRepository custumerEntityRepository;
-
+    private CustomerEntityRepository customerEntityRepository;
     @Autowired
     private CustomerEntityMapper customerEntityMapper;
 
     @Override
-    public void insert(Customer customer) {
-        var custumerEntity = customerEntityMapper.toCustumerEntity(customer);
-        custumerEntityRepository.save(custumerEntity);
+    public Optional<Customer> find(String id) {
+        var customerEntity = customerEntityRepository.findById(id);
+        return customerEntity.map(entity -> customerEntityMapper.toCustomer(entity));
     }
 
 }

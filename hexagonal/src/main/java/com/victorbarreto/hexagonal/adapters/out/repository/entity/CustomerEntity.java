@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Document(collation = "customers")
-public class CustumerEntity {
+public class CustomerEntity {
 
     private String id;
     private String name;
