@@ -5,6 +5,7 @@ import br.com.alura.adopet.api.model.Abrigo;
 import br.com.alura.adopet.api.model.Adocao;
 import br.com.alura.adopet.api.model.Pet;
 import br.com.alura.adopet.api.model.Tutor;
+import br.com.alura.adopet.api.repository.AbrigoRepository;
 import br.com.alura.adopet.api.repository.AdocaoRepository;
 import br.com.alura.adopet.api.repository.PetRepository;
 import br.com.alura.adopet.api.repository.TutorRepository;
@@ -17,6 +18,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,6 +39,15 @@ class AbrigoServiceTest {
 
     @Mock
     private EmailService emailService;
+
+    @InjectMocks
+    private AbrigoService service;
+
+    @Mock
+    private AbrigoRepository repository;
+
+    @Mock
+    private Abrigo abrigo;
 
     /*
      * Spy
@@ -78,9 +89,6 @@ class AbrigoServiceTest {
 
     @Mock
     private Tutor tutor;
-
-    @Mock
-    private Abrigo abrigo;
 
     private SolicitacaoAdocaoDto dto;
 
@@ -131,6 +139,28 @@ class AbrigoServiceTest {
         // ASSERT
         BDDMockito.then(validador1).should().validar(dto);
         BDDMockito.then(validador2).should().validar(dto);
+    }
+
+    @Test
+    void deveriaChamarListaDeTodosOsAbrigos() {
+        //Act
+        service.listar();
+
+        //Assert
+        BDDMockito.then(repository).should().findAll();
+    }
+
+    @Test
+    void deveriaChamarListaDePetsDoAbrigoAtravesDoNome() {
+        //Arrange
+        String nome = "Miau";
+        BDDMockito.given(repository.findByNome(nome)).willReturn(Optional.of(abrigo));
+
+        //Act
+        service.listarPetsDoAbrigo(nome);
+
+        //Assert
+        BDDMockito.then(petRepository).should().findByAbrigo(abrigo);
     }
 
 }

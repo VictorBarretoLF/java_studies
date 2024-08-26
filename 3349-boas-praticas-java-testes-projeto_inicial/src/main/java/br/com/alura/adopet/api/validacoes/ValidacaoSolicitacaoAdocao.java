@@ -7,3 +7,4 @@ public interface ValidacaoSolicitacaoAdocao {
     void validar(SolicitacaoAdocaoDto dto);
 
 }
+
