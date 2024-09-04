@@ -8,5 +8,5 @@ spring:
 app:
   client:
     address:
-      url: http://localhost:8082/addresses
-
+#      url: http://localhost:8082/addresses
+        url: https://viacep.com.br/ws

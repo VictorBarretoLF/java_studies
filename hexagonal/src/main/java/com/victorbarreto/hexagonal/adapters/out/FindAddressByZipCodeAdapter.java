@@ -18,7 +18,7 @@ public class FindAddressByZipCodeAdapter implements FindAddressByZipCodeOutputPo
 
     @Override
     public Address find(String zipCode) {
-        var addressResponse = findAddressByZipCodeClient.find(zipCode);
+        var addressResponse = findAddressByZipCodeClient.findViaCep(zipCode);
         return addressResponseMapper.toAddress(addressResponse);
     }
 
