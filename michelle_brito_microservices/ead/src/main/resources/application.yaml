@@ -1,0 +1,20 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: ead
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ead-authuser
+    username: postgres
+    password: postgres123
+  jpa:
+    hibernate:
+      ddl-auto: update
+#    show-sql: true
+      jdbc:
+        time-zone: UTC
+        lob.non_contextual_creation: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
