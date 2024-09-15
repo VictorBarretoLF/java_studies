@@ -1,13 +1,13 @@
-package com.ead.ead;
+package com.ead.authuser;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EadApplication {
+public class AuthUserApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EadApplication.class, args);
+		SpringApplication.run(AuthUserApplication.class, args);
 	}
 
 }

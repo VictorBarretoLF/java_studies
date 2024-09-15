@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ead</groupId>
-	<artifactId>ead</artifactId>
+	<artifactId>authuser</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ead</name>
-	<description>Ead Project</description>
+	<description>AuthUser Project</description>
 	<url/>
 	<licenses>
 		<license/>

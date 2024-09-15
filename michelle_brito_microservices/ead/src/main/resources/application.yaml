@@ -11,7 +11,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-#    show-sql: true
+      show-sql: true
       jdbc:
         time-zone: UTC
         lob.non_contextual_creation: true
