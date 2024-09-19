@@ -1,6 +1,6 @@
 package com.victorbarreto.application;
 
-import com.victorbarreto.domain.Category;
+import com.victorbarreto.domain.category.Category;
 
 public class UseCase {
 
