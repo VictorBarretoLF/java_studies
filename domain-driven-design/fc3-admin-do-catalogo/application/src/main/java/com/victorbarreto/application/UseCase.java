@@ -5,7 +5,7 @@ import com.victorbarreto.domain.category.Category;
 public class UseCase {
 
     public Category execute() {
-        return new Category();
+        return Category.newCategory("name", "description", true);
     }
 
 }

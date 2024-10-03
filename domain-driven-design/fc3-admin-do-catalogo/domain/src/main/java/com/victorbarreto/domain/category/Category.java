@@ -1,11 +1,12 @@
 package com.victorbarreto.domain.category;
 
+import com.victorbarreto.domain.AggregateRoot;
+
 import java.time.Instant;
 import java.util.UUID;
 
-public class Category {
+public class Category extends AggregateRoot<CategoryID> {
 
-    private String id;
     private String name;
     private String description;
     private Boolean isActive;
@@ -13,18 +14,15 @@ public class Category {
     private Instant updatedAt;
     private Instant deletedAt;
 
-    public Category() {
-    }
-
-    public Category(
-            final String anId,
+    private Category(
+            final CategoryID anId,
             final String aName,
             final String aDescription,
             final boolean isActive,
             final Instant aCreationDate,
             final Instant aUpdateDate,
             final Instant aDeleteDate) {
-        this.id = anId;
+        super(anId);
         this.name = aName;
         this.description = aDescription;
         this.isActive = isActive;
@@ -34,14 +32,14 @@ public class Category {
     }
 
     private Category(
-            String id,
+            CategoryID anId,
             String name,
             String description,
             Boolean isActive,
             Instant createdAt,
             Instant updatedAt,
             Instant deletedAt) {
-        this.id = id;
+        super(anId);
         this.name = name;
         this.description = description;
         this.isActive = isActive;
@@ -54,19 +52,13 @@ public class Category {
             final String aName,
             final String aDescription,
             final Boolean isActive) {
-        return new Category(
-                UUID.randomUUID().toString(),
-                aName,
-                aDescription,
-                isActive,
-                Instant.now(),
-                Instant.now(),
-                null
-        );
+        final var id = CategoryID.unique();
+        final var now = Instant.now();
+        return new Category(id, aName, aDescription, isActive, now, now, null);
     }
 
-    public String getId() {
-        return id;
+    public CategoryID getId() {
+        return super.getId();
     }
 
     public String getName() {

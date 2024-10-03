@@ -18,4 +18,5 @@ public class AggregateRoot<ID extends Identifier> extends Entity<ID> {
     public int hashCode() {
         return id.hashCode();
     }
+
 }
