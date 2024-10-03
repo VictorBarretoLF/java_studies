@@ -1,0 +1,5 @@
+rootProject.name = 'todo-app'
+include 'domain'
+include 'application'
+include 'infrastructure'
+
