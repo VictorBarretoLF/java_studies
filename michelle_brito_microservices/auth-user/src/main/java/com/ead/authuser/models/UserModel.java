@@ -12,12 +12,13 @@ import java.util.UUID;
 import com.ead.authuser.enums.UserStatus;
 import com.ead.authuser.enums.UserType;
 import lombok.Data;
+import org.springframework.hateoas.RepresentationModel;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 @Table(name = "TB_USERS")
-public class UserModel implements Serializable {
+public class UserModel extends RepresentationModel<UserModel> implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
