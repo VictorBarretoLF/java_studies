@@ -33,6 +33,8 @@ docker exec -it my_kafka_container bash
 
 ## Kafka CLI
 
+### Topics
+
 ```bash
 # Navega até o diretório onde estão os binários do Kafka.
 cd /opt/bitnami/kafka/bin
@@ -44,6 +46,21 @@ cd /opt/bitnami/kafka/bin
 ```
 
 ```bash
-#O comando ./kafka-topics.sh --list --bootstrap-server=localhost:9092 lista todos os tópicos existentes no cluster Kafka especificado.
+# Cria um novo tópico chamado 'topic1' com 3 partições e um fator de replicação de 3 no servidor Kafka em execução no localhost na porta 9092.
+./kafka-topics.sh --create --topic=topic1 --bootstrap-server=localhost:9092 --partitions=3 --replication-factor=3
+```
+
+```bash
+# Lista todos os tópicos existentes no cluster Kafka especificado.
 ./kafka-topics.sh --list --bootstrap-server=localhost:9092
+```
+
+```bash
+# Descreve os detalhes de todos os tópicos existentes no cluster Kafka especificado.
+./kafka-topics.sh --describe --bootstrap-server=localhost:9092
+```
+
+```bash
+# Exclui o tópico chamado 'topic1' no servidor Kafka em execução no localhost na porta 9092.
+./kafka-topics.sh --delete --topic=topic1 --bootstrap-server=localhost:9092
 ```
