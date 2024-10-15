@@ -64,3 +64,30 @@ cd /opt/bitnami/kafka/bin
 # Exclui o tópico chamado 'topic1' no servidor Kafka em execução no localhost na porta 9092.
 ./kafka-topics.sh --delete --topic=topic1 --bootstrap-server=localhost:9092
 ```
+
+### Consumer & Producers
+
+```bash
+# Start a Kafka consumer to read messages from the 'teste' topic
+./kafka-console-consumer.sh --bootstrap-server=localhost:9092 --topic=teste
+```
+
+```bash
+# Start a Kafka producer to send messages to the 'teste' topic
+./kafka-console-producer.sh --bootstrap-server=localhost:9092 --topic=teste
+```
+
+```bash
+# Start a Kafka consumer to read all messages from the beginning of the 'teste' topic
+./kafka-console-consumer.sh --bootstrap-server=localhost:9092 --topic=teste --from-beginning
+```
+
+```bash
+# Start a Kafka consumer to read all messages from the beginning of the 'teste' topic with a specific consumer group 'x'
+./kafka-console-consumer.sh --bootstrap-server=localhost:9092 --topic=teste --from-beginning --group=x
+```
+
+```bash
+# Start a Kafka producer to send messages to the 'teste' topic with key-value pairs, using ':' as the key separator
+./kafka-console-producer.sh --bootstrap-server=localhost:9092 --topic=teste --property="parse.key=true" --property="key.separator=:"
+```
