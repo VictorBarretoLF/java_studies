@@ -65,6 +65,17 @@ cd /opt/bitnami/kafka/bin
 ./kafka-topics.sh --delete --topic=topic1 --bootstrap-server=localhost:9092
 ```
 
+```bash
+# Create a Kafka topic named 'insync-topic' with 3 partitions and a replication factor of 3.
+# The topic is configured to require at least 2 in-sync replicas for a message to be considered committed.
+./kafka-topics.sh --create --topic=insync-topic --bootstrap-server=localhost:9092 --partitions=3 --replication-factor=3 --config="min.insync.replicas=2"
+```
+
+```bash
+# Alter the configuration of an existing Kafka topic named 'topic' to set the minimum number of in-sync replicas to 2.
+./kafka-configs.sh --bootstrap-server=localhost:9092 --alter --entity-type=topics --entity-name=topic --add-config="min.insync.replicas=2"
+```
+
 ### Consumer & Producers
 
 ```bash
@@ -90,4 +101,9 @@ cd /opt/bitnami/kafka/bin
 ```bash
 # Start a Kafka producer to send messages to the 'teste' topic with key-value pairs, using ':' as the key separator
 ./kafka-console-producer.sh --bootstrap-server=localhost:9092 --topic=teste --property="parse.key=true" --property="key.separator=:"
+```
+
+```bash
+# Start a Kafka consumer to read messages from the 'product-created-events-topic' topic and print the message keys.
+./kafka-console-consumer.sh --bootstrap-server=localhost:9092 --topic=product-created-events-topic --property="print.key=true"
 ```

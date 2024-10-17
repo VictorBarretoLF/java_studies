@@ -1,0 +1,29 @@
+# Configuration for the server
+server:
+  port: 8080  # The port on which the server will run
+
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092  # Kafka broker address for the consumer
+      group-id: group_id  # Consumer group ID
+      auto-offset-reset: earliest  # Reset offset to the earliest if no offset is present
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer  # Deserializer for the key
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer  # Deserializer for the value
+      properties:
+        spring.json.trusted.packages: '*'  # Trusted packages for JSON deserialization
+
+    producer:
+      acks: all  # Acknowledgment level for the producer
+#      retries: 10  # Number of retries for the producer
+      bootstrap-servers: localhost:9092  # Kafka broker address for the producer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer  # Serializer for the key
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer  # Serializer for the value
+      properties:
+        spring.json.trusted.packages: '*'  # Trusted packages for JSON serialization
+#        retry.backoff.ms: 1000  # Backoff time for retries
+        # if you want to change the timeout for the producer
+        # linger.ms and request.timeout.ms should be set to a value greater or equal to delivery.timeout.ms
+        delivery.timeout.ms: 120000  # Timeout for delivery
+        linger.ms: 0  # Time to wait before sending a batch
+        request.timeout.ms: 120000  # Timeout for requests
