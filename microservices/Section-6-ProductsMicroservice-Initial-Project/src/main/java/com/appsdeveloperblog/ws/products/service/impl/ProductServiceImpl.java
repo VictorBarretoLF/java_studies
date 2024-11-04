@@ -1,7 +1,8 @@
 package com.appsdeveloperblog.ws.products.service.impl;
 
+import com.appsdeveloperblog.ws.core.ProductCreatedEvent;
+
 import com.appsdeveloperblog.ws.products.dto.CreateProductDto;
-import com.appsdeveloperblog.ws.products.event.ProductCreatedEvent;
 import com.appsdeveloperblog.ws.products.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +17,7 @@ import org.springframework.kafka.support.SendResult;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    private KafkaTemplate<String, ProductCreatedEvent> kafkaTemplate;
+    private final KafkaTemplate<String, ProductCreatedEvent> kafkaTemplate;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public ProductServiceImpl(KafkaTemplate<String, ProductCreatedEvent> kafkaTemplate) {

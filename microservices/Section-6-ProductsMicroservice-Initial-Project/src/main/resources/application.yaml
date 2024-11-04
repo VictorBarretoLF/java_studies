@@ -1,3 +1,6 @@
+test:
+  property: "Configuration Loaded"  # Test property
+
 # Configuration for the server
 server:
   port: 8080  # The port on which the server will run
@@ -20,10 +23,14 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer  # Serializer for the key
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer  # Serializer for the value
       properties:
-        spring.json.trusted.packages: '*'  # Trusted packages for JSON serialization
-#        retry.backoff.ms: 1000  # Backoff time for retries
+        # spring.json.trusted.packages: '*'  # Trusted packages for JSON serialization
+        # retries: 10  # Number of retries for the producer
+        # retry.backoff.ms: 1000  # Backoff time for retries
         # if you want to change the timeout for the producer
         # linger.ms and request.timeout.ms should be set to a value greater or equal to delivery.timeout.ms
         delivery.timeout.ms: 120000  # Timeout for delivery
         linger.ms: 0  # Time to wait before sending a batch
         request.timeout.ms: 120000  # Timeout for requests
+        enable.idempotence: true
+        # For idempotence to work, the following properties should be set to a value less than or equal to 5
+        max.in.flight.requests.per.connection: 5  # Maximum number of in-flight requests per connection

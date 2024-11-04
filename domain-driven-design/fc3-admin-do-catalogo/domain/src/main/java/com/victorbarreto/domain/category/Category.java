@@ -1,9 +1,9 @@
 package com.victorbarreto.domain.category;
 
 import com.victorbarreto.domain.AggregateRoot;
+import com.victorbarreto.domain.validation.ValidationHandler;
 
 import java.time.Instant;
-import java.util.UUID;
 
 public class Category extends AggregateRoot<CategoryID> {
 
@@ -55,6 +55,11 @@ public class Category extends AggregateRoot<CategoryID> {
         final var id = CategoryID.unique();
         final var now = Instant.now();
         return new Category(id, aName, aDescription, isActive, now, now, null);
+    }
+
+    @Override
+    public void validate(ValidationHandler validationHandler) {
+        new CategoryValidator(this, validationHandler).validate();
     }
 
     public CategoryID getId() {

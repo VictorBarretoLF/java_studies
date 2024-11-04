@@ -1,6 +1,6 @@
 package com.appsdeveloperblog.ws.products.config;
 
-import com.appsdeveloperblog.ws.products.event.ProductCreatedEvent;
+import com.appsdeveloperblog.ws.core.ProductCreatedEvent;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.beans.factory.annotation.Value;
@@ -38,16 +38,25 @@ public class KafkaConfig {
     @Value("${spring.kafka.producer.properties.request.timeout.ms}")
     private String requestTimeoutMs;
 
+    @Value("${spring.kafka.producer.properties.enable.idempotence}")
+    private Boolean enableIdempotence;
+
+    @Value("${spring.kafka.producer.properties.max.in.flight.requests.per.connection}")
+    private Integer inFlightRequestsPerConnection;
+
     public Map<String, Object> producerConfigs() {
         Map<String, Object> config = new HashMap<>();
 
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, KeySerializer);
-        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, ValueSerializer);
-        config.put(ProducerConfig.ACKS_CONFIG, acks);
-        config.put(ProducerConfig.DELIVERY_TIMEOUT_MS_CONFIG, deliveryTimeoutMs);
-        config.put(ProducerConfig.LINGER_MS_CONFIG, lingerMs);
-        config.put(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, requestTimeoutMs);
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServers);
+        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, this.KeySerializer);
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, this.ValueSerializer);
+        config.put(ProducerConfig.ACKS_CONFIG, this.acks);
+        config.put(ProducerConfig.DELIVERY_TIMEOUT_MS_CONFIG, this.deliveryTimeoutMs);
+        config.put(ProducerConfig.LINGER_MS_CONFIG, this.lingerMs);
+        config.put(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, this.requestTimeoutMs);
+        config.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, this.enableIdempotence);
+        config.put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, this.inFlightRequestsPerConnection);
+        //config.put(ProducerConfig.RETRIES_CONFIG, Integer.MAX_VALUE);
 
         return config;
     }

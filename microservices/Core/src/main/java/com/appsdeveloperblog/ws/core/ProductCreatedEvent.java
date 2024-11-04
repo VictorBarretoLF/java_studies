@@ -1,5 +1,4 @@
-package com.appsdeveloperblog.ws.products.event;
-
+package com.appsdeveloperblog.ws.core;
 import java.math.BigDecimal;
 
 public class ProductCreatedEvent {
