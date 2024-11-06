@@ -1,0 +1,1 @@
+Modify this file. Create a static method to convert #file:OrderMessage.java to #file:OrderRewardMessage.java 

@@ -1,0 +1,31 @@
+{
+    "name": "cdc-postgresql-finance-connector",
+    "config": {
+        "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+        "tasks.max": "1",
+        "database.hostname": "my-postgres.com",
+        "database.port": "5432",
+        "database.user": "postgres",
+        "database.password": "postgres",
+        "database.dbname": "postgres",
+        "database.server.name": "t-cdc-finance",
+        "table.include.list": "public.fin_invoices",
+        "plugin.name": "pgoutput",
+        "database.replication.slot.name": "debezium_finance",
+        "transforms": "unwrap",
+        "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+        "transforms.unwrap.drop.tombstones": "false",
+        "transforms.unwrap.delete.handling.mode": "rewrite",
+        "transforms.unwrap.add.fields": "op,source.ts_ms",
+        "time.precision.mode": "connect",
+        "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+        "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "value.converter.schemas.enable": "false",
+        "key.converter.schemas.enable": "false",
+        "topic.creation.default.replication.factor": "1",
+        "topic.creation.default.partitions": "1",
+        "topic.creation.default.cleanup.policy": "delete",
+        "database.history.kafka.bootstrap.servers": "127.0.0.1:9092",
+        "database.history.kafka.topic": "schema-changes.t-cdc-finance"
+    }
+}

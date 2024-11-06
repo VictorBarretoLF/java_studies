@@ -1,0 +1,20 @@
+{
+    "name": "jdbc-postgresql-people-addresses-connector",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+        "tasks.max": "1",
+        "connection.url": "jdbc:postgresql://my-postgres.com:5432/postgres",
+        "connection.user": "your_postgres_username",
+        "connection.password": "your_postgres_password",
+        "topic.prefix": "t-person-address-postgresql",
+        "mode": "bulk",
+        "poll.interval.ms": "7200000",
+        "query": "SELECT p.*, pa.address_id, pa.address, pa.city, pa.postal_code FROM people p LEFT JOIN people_addresses pa ON p.person_id = pa.person_id ORDER BY p.person_id",
+        "key.column": "address_id",
+        "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+        "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "value.converter.schemas.enable": "false",
+        "key.converter.schemas.enable": "false",
+        "bootstrap.servers": "127.0.0.1:9092"
+    }
+}

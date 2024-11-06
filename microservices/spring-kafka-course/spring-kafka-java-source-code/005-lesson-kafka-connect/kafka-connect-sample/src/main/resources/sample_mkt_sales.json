@@ -1,0 +1,23 @@
+{
+    "payload": {
+        "before": {
+            "sales_id": 4,
+            "sales_amount": 654,
+            "sales_currency": "USD",
+            "sales_date": 19292,
+            "customer_email": "mblencowe3@plala.or.jp"
+        },
+        "after": {
+            "sales_id": 4,
+            "sales_amount": 999,
+            "sales_currency": "USD",
+            "sales_date": 19292,
+            "customer_email": "mblencowe3@plala.or.jp"
+        },
+        "source": {
+            "schema": "public",
+            "table": "mkt_sales"
+        },
+        "op": "u"
+    }
+}

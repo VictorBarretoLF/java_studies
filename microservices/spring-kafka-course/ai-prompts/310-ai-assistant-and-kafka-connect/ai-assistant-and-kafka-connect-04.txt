@@ -1,0 +1,11 @@
+Create a Kafka Connect CDC source connector to stream changes from a PostgreSQL database to a Kafka topic.
+The connector should:
+ - Connect to a Kafka cluster running on IP 127.0.01 at port 9092.
+ - Use the Debezium CDC connector.
+ - Read from PostgreSQL at IP my-postgres.com, port 5432, database postgres.
+ - PostgreSQL username: "postgres", and password: "postgres".
+ - Monitor the public.fin_invoices table for data change.
+ - Send data change to Kafka topics prefixed with "t-cdc-finance"
+ - Emit tombstone events when a row is deleted.
+ - Represent date/time value up to millisecond precision.
+ - Use a replication slot named debezium_finance.

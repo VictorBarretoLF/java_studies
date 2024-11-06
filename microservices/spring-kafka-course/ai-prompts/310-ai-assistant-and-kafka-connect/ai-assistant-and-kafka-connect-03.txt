@@ -1,0 +1,6 @@
+Create a Kafka Connect sink connector to send data to an SFTP server. The connector should:
+ - Connect to a Kafka cluster running on IP 127.0.01 at port 9092.
+ - Read data from t-spooldir-csv-demo, every 10 seconds.
+ - Send data to the SFTP server at IP 33.44.55.66, port 2222, folder "sink-output".
+ - Generate the output in JSON format. 
+ - SFTP username: "mysftpuser", and password: "mysftppassword".

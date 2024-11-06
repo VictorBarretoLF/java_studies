@@ -1,0 +1,1 @@
+Modify this file. Create a static method to convert #file:OrderMessage.java to #file:OrderPatternMessage.java . Implement functionalities to summarize the total item amount and the other fields taken from the original.

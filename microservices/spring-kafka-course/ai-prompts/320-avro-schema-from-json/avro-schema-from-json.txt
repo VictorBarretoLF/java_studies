@@ -1,0 +1,13 @@
+Generate an Avro schema from this JSON.
+
+```
+{
+    "person_id": 1,
+    "title": "Mr",
+    "first_name": "Drusi",
+    "last_name": "Weddell",
+    "email": "dweddell0@earthlink.net",
+    "gender": "Female",
+    "country": "Canada"
+}
+```

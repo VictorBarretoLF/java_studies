@@ -1,0 +1,7 @@
+I have Kafka topic t-ksql-basic-data-person. Each data in this topic has a JSON value like the one below.
+
+```
+{"firstName":"Abdul","lastName":"Zieme","birthDate":"1987-12-16","contacts":{"email":"Terrill.Barrows80@yahoo.com","phoneWork":"438-807-8150","phoneHome":"816-858-8165"},"passport":{"number":"19485739302","expirationDate":"2027-11-25"},"addresses":[{"streetAddress":"307 Casper Gateway","country":"Niger","location":{"latitude":-60.4442,"longitude":-23.0339}},{"streetAddress":"90830 Astrid Mills","country":"Haiti","location":{"latitude":-55.234,"longitude":112.1729}},{"streetAddress":"160 Anabel Fall","country":"Vanuatu","location":{"latitude":24.9619,"longitude":30.1418}}]}
+```
+
+Create a ksqlDB stream named `s-ai-basic-data-person` (including the backtick) from that topic. 

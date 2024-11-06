@@ -1,0 +1,1 @@
+Using Spring, create a method to send a string and incremental counter to the Kafka topic `t-fixedrate`. The method runs every 1 second. Log the message sent.

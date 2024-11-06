@@ -1,0 +1,9 @@
+I have Kafka topic t-ksql-basic-data-three. Each data in this topic has a JSON value like the one below.
+
+```
+{"myLocalDate":"2023-11-20","myLocalDateCustomFormat":"20 Nov 2023","myLocalTime":"19:00:46","myLoca
+lTimeCustomFormat":"07:00:46 PM","myLocalDateTime":"2021-10-28T20:18:29","myLocalDateTimeCustomFormat":"28-Oct-2021 08:18:29 PM","myOffsetDateTime":"2020-10
+-13T08:37:35.000+1000","myOffsetDateTimeCustomFormat":"13-Oct-2020 08:37:35.000 AM +1000"}
+```
+
+Create a ksqlDB stream named `s-ai-basic-data-three` (including the backtick) from that topic. 

@@ -1,0 +1,1 @@
+Modify this file. Create a method where the input is #file:OrderMessage.java, and the output is a new instance of #file:OrderMessage.java with the first 12 digits of the credit card number masked.

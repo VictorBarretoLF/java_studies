@@ -1,0 +1,7 @@
+I have Kafka topic t-ksql-basic-data-one. Each data in this topic has a JSON value like the one below.
+
+```
+{"myBoolean":false,"myString":"Ergonomic 6th generation structure","myAnotherString":"Innovative zero administration core","myInteger":137,"myLong":58779,"myFloat":818.357,"myDouble":442187.540189,"myBigDecimal":28336.146378100}
+```
+
+Create a ksqlDB stream named `s-ai-basic-data-one` from that topic.

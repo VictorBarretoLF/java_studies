@@ -1,0 +1,8 @@
+Modify this file.
+Create a Kafka Stream method with Spring.
+The method will:
+ 1. take JSON string from t-commodity-promotion using Spring Json Serde
+ 2. convert it into #file:PromotionMessage.java
+ 3. convert the promotion code to uppercase
+ 4. send the result to topic t-commodity-promotion-uppercase.
+ 5. print the original and processed data.

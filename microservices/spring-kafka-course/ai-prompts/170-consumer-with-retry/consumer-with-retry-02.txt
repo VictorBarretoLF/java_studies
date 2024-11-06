@@ -1,0 +1,7 @@
+Modify this file.
+Use #file:ImageService.java and #file:ImageProducer.java .
+Generate and send six images to Kafka.
+The first image is JPG.
+The second image is SVG. 
+The value of the other image is up to you as long as it is not SVG.
+Send the first three images to partition 0 and the rest to partition 1.

@@ -1,0 +1,24 @@
+{
+    "name": "jdbc-postgresql-source-connector",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+        "tasks.max": "1",
+        "connection.url": "jdbc:postgresql://my-postgres.com:5432/postgres",
+        "connection.user": "your_postgres_user",
+        "connection.password": "your_postgres_password",
+        "mode": "timestamp",
+        "timestamp.column.name": "updated_at",
+        "query": "SELECT p.*, pa.address_id, pa.address, pa.city, pa.postal_code FROM people p LEFT JOIN people_addresses pa ON p.person_id = pa.person_id ORDER BY p.person_id",
+        "topic.prefix": "t-person-address-postgresql",
+        "poll.interval.ms": "7200000",
+        "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+        "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "key.converter.schemas.enable": "false",
+        "value.converter.schemas.enable": "false",
+        "transforms": "createKey",
+        "transforms.createKey.type": "org.apache.kafka.connect.transforms.ValueToKey",
+        "transforms.createKey.fields": "address_id",
+        "transforms.extractInt": "org.apache.kafka.connect.transforms.ExtractField$Key",
+        "transforms.extractInt.field": "address_id"
+    }
+}

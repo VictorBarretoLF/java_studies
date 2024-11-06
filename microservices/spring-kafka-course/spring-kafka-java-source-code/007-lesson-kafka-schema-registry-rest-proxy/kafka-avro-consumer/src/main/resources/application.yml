@@ -1,0 +1,40 @@
+logging:
+    pattern:
+        console: "[Avro Consumer] %clr(%d{HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:%5p}) %clr(---){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+
+spring:
+    application:
+        name: kafka-avro-consumer
+    main:
+        banner-mode: OFF
+        log-startup-info: false
+    kafka:
+        bootstrap-servers:
+            - localhost:9092
+        consumer:
+            group-id: avro-cg
+            auto-offset-reset: earliest
+            key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+        properties:
+            schema:
+                registry:
+                    url: http://localhost:8081
+            specific:
+                avro:
+                    reader: true
+        streams:
+            application-id: kafka-stream-avro-${random.uuid}
+            bootstrap-servers:
+                - localhost:9092
+            properties:
+                default:
+                    key:
+                        serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+                    value:
+                        serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+                commit:
+                    interval:
+                        ms: 3000
+                processing:
+                    guarantee: exactly_once_v2              

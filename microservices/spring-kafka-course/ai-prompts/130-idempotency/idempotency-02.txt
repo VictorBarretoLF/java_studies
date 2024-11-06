@@ -1,0 +1,3 @@
+Create a method to send a #file:PurchaseRequest.java to topic t-purchase-request.
+Convert the purchase request to JSON string and send it.
+Use the purchase request number as the message's key.

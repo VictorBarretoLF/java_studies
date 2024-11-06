@@ -1,0 +1,1 @@
+Change the output format into "The multiplication result of i and j is ..."

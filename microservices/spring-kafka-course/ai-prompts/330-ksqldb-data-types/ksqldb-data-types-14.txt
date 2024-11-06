@@ -1,0 +1,19 @@
+Given this ksqlDB stream definition.
+
+```
+CREATE STREAM `s-ai-basic-data-person` (
+    firstName VARCHAR,
+    lastName VARCHAR,
+    birthDate VARCHAR,
+    contacts STRUCT<email VARCHAR, phoneWork VARCHAR, phoneHome VARCHAR>,
+    passport STRUCT<number VARCHAR, expirationDate VARCHAR>,
+    addresses ARRAY<STRUCT<streetAddress VARCHAR, country VARCHAR, location STRUCT<latitude DOUBLE, longitude DOUBLE>>>
+) WITH (
+    KAFKA_TOPIC = 't-ksql-basic-data-person',
+    VALUE_FORMAT = 'JSON'
+);
+```
+
+Create a ksqlDB query to show all fields. 
+If a field is within a struct, show it as a separate column on the query.
+If a field is an array, show each array's element as a single row.

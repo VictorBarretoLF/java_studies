@@ -1,0 +1,18 @@
+{
+    "name": "csv-source-connector",
+    "config": {
+        "connector.class": "org.apache.kafka.connect.file.FileStreamSourceConnector",
+        "tasks.max": "1",
+        "topic": "t-spooldir-csv-demo",
+        "file": "/data/inputs/employee-*.csv",
+        "name": "CSVFileStreamSourceConnector",
+        "value.converter": "org.apache.kafka.connect.storage.StringConverter",
+        "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+        "schema.generation.enabled": "true",
+        "file.pattern": "employee-*.csv",
+        "csv.first.row.as.header": "true",
+        "poll.interval.ms": "10000",
+        "behavior.on.error": "continue",
+        "behavior.on.empty.input": "continue"
+    }
+}

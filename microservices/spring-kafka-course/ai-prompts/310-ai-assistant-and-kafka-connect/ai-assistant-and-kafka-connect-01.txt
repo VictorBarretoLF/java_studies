@@ -1,0 +1,5 @@
+Create a Kafka Connect source connector to read CSV files from a directory. The connector should:
+ - Publish data to t-spooldir-csv-demo.
+ - Read all files with pattern "employee-*.csv" from folder "/data/inputs". The first row of CSV files will always be a header, not a data.
+ - Pull the data from the files every 10 seconds.
+ - Continue reading files from the directory even if the input directory is empty or errors occur.

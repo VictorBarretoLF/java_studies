@@ -1,0 +1,2 @@
+Create a method that receives #file:CarLocation.java as the parameter.
+Convert it into a JSON string and send the JSON to Kafka topic t-location using car location ID as the key.

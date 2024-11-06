@@ -1,0 +1,1 @@
+Create a method to generate a dummy commodity. The method will take the parameter "name", where this name must exist on the base commodity map. The price must be calculated according to the base price and adjusted between the minimum and maximum threshold we define.

@@ -1,0 +1,1 @@
+Using Spring, consume JSON from Kafka topic t-commodity. Convert it to class #file:Commodity.java , and display the result to the terminal.

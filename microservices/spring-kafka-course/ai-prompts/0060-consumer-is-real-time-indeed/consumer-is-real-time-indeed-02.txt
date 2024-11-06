@@ -1,0 +1,1 @@
+Using Spring, consume from Kafka topic "t-fixedrate" and display the message.

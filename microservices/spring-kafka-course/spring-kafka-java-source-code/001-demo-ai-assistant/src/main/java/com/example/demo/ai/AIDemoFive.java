@@ -1,0 +1,13 @@
+package com.example.demo.ai;
+
+public class AIDemoFive {
+    public static void main(String[] args) {
+        for (int i = 0; i <= 100; i++) {
+            if (i % 2 == 0) {
+                System.out.println(i + " is even"); // Fixed the message to correctly match the condition
+            } else {
+                System.out.println(i + " is odd");
+            }
+        }
+    }
+}

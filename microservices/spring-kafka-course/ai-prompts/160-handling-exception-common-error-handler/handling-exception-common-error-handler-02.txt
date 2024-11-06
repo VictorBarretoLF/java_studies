@@ -1,0 +1,1 @@
+Using Spring, write a method to consume JSON string from Kafka topic t-simple-number. Convert the string to #file:SimpleNumber.java. If the number is odd, throw an IllegalArgumentException. Otherwise, show the number. Throw any possible exception, don't use any try-catch block.

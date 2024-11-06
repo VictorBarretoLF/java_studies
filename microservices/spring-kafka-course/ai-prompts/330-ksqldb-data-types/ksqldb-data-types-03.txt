@@ -1,0 +1,18 @@
+Given this ksqlDB stream definition.
+
+```
+CREATE STREAM s_ai_basic_data_one (
+    myBoolean BOOLEAN,
+    myString VARCHAR,
+    myAnotherString VARCHAR,
+    myInteger INT,
+    myLong BIGINT,
+    myFloat DOUBLE,
+    myDouble DOUBLE,
+    myBigDecimal DECIMAL(20, 10)
+) WITH (
+    KAFKA_TOPIC = 't-ksql-basic-data-one',
+    VALUE_FORMAT = 'JSON'
+```
+
+Create a ksqlDB query to select 15 data from the stream.

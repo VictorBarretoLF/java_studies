@@ -1,0 +1,1 @@
+Write a multiplication table from 1 to 5 and show the results to the console.

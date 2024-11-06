@@ -1,0 +1,1 @@
+Generate a method to calculate SHA-256 using amount, currency, and bank account. Join the fields using the '//' string and calculate the hash. Throw any possible exceptions.

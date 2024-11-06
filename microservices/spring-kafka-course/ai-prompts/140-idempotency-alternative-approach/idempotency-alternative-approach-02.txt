@@ -1,0 +1,1 @@
+Modify this file. Create 6 #file:PaymentRequest.java with 3 distinct bank accounts. Each payment has a different amount. Publish them to Kafka using #file:PaymentRequestProducer.java. Publish 2 of them again, so we have 8 published messages.

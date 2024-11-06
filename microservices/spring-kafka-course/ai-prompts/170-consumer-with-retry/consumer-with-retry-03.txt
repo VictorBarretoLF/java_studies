@@ -1,0 +1,4 @@
+Modify this file.
+Create Spring Kafka listener to consume JSON string from topic t-image. Convert it into #file:Image.java.
+If the image type is SVG (case insensitive), throw an IllegalArgumentException. Otherwise, log the message body and the partition. Don't use any try-catch block.
+Use 2 concurrencies for the listener.

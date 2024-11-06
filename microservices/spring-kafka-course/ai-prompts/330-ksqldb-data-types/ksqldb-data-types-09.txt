@@ -1,0 +1,7 @@
+I have Kafka topic t-ksql-basic-data-four. Each data in this topic has a JSON value like the one below.
+
+```
+{"myStringArray":["Array element 0","Array element 1","Array element 2","Array element 3"],"myIntegerList":[0,1,2,3,4,5,6,7,8,9],"myDoubleSet":[49.51362276412985,89.58630655777333,146.58566550200757,198.71503091921494,207.7690253524641,287.07786146201954,290.6786631893885,439.64479537294545,543.5624863285452,609.2398800829276]}
+```
+
+Create a ksqlDB stream named `s-ai-basic-data-four` (including the backtick) from that topic. 

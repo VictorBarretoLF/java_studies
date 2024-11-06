@@ -1,0 +1,4 @@
+Modify this file.
+Add #file:PurchaseRequestProducer.java .
+Create three #file:PurchaseRequest.java with unique IDs and numbers.
+Send all three to kafka.

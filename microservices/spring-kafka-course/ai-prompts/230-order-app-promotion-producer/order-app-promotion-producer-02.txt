@@ -1,0 +1,1 @@
+Create a method to convert #file:PromotionRequest.java to #file:PromotionMessage.java

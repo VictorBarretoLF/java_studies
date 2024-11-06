@@ -1,0 +1,8 @@
+I have Kafka topic t-ksql-basic-data-two. Each data in this topic has a JSON value like the one below.
+
+```
+{"myEpochDay":19852,"myMillisOfDay":30373000,"myEpochMillis":1918189320000}
+```
+
+Create a ksqlDB stream with the exact name: `s-ai-basic-data-two` (including the backtick) from that topic. 
+The stream must use the DATE, TIME, or TIMESTAMP data type instead of BIGINT.

@@ -1,0 +1,15 @@
+Given this ksqlDB stream definition.
+
+```
+CREATE STREAM `s-ai-basic-data-five` (
+    myMapAlpha MAP<VARCHAR, VARCHAR>,
+    myMapBeta MAP<VARCHAR, VARCHAR>
+) WITH (
+    KAFKA_TOPIC = 't-ksql-basic-data-five',
+    VALUE_FORMAT = 'JSON'
+);
+```
+
+Create a ksqlDB query to:
+ - show all values from myMapAlpha
+ - show all keys from myMapBeta

@@ -1,0 +1,10 @@
+Create a Kafka Connect sink connector to insert data into a PostgreSQL database. 
+The connector should:
+ - Connect to a Kafka cluster running on IP 127.0.01 at port 9092.
+ - Use the JDBC sink connector.
+ - Read data from the topic "t-person-address-postgresql".
+ - Read from PostgreSQL at IP my-postgres.com, port 5432, database postgres.
+ - Insert the data into table "kafka_person_address" in the PostgreSQL.
+ - Automatically create the table if it does not exist. If the table exists, the table columns must be automatically updated to match the structure of the incoming data.
+ - Insert or update records in the database based on the primary key. The primary key is the "address_id" field from the consumed data. 
+ - Delete the database record if a null value is consumed from the Kafka topic.

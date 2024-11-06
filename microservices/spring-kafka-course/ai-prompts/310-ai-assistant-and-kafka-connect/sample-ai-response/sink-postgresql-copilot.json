@@ -1,0 +1,19 @@
+{
+    "name": "postgres-sink-connector",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+        "tasks.max": "1",
+        "topics": "t-spooldir-csv-demo",
+        "connection.url": "jdbc:postgresql://my-postgres.com:5432/postgres",
+        "connection.user": "postgres",
+        "connection.password": "postgres",
+        "table.name.format": "kafka_employees",
+        "auto.create": "true",
+        "insert.mode": "upsert",
+        "pk.mode": "record_key",
+        "pk.fields": "employee_id",
+        "fields.whitelist": "employee_id,first_name,last_name,email,gender,birth_date,salary",
+        "transforms": "unwrap",
+        "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState"
+    }
+}

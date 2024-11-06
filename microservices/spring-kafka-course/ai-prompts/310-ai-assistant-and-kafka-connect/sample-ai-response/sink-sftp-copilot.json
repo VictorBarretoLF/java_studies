@@ -1,0 +1,19 @@
+{
+    "name": "sftp-sink-connector",
+    "config": {
+        "connector.class": "io.confluent.connect.sftp.SftpSinkConnector",
+        "tasks.max": "1",
+        "topics": "t-spooldir-csv-demo",
+        "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+        "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "value.converter.schemas.enable": "false",
+        "sftp.host": "33.44.55.66",
+        "sftp.port": "2222",
+        "sftp.username": "mysftpuser",
+        "sftp.password": "mysftppassword",
+        "sftp.directory": "/sink-output",
+        "sftp.file.name.template": "${topic}-${timestamp}.json",
+        "sftp.poll.interval.ms": "10000",
+        "sftp.file.format": "json"
+    }
+}

@@ -1,0 +1,1 @@
+Modify #file:KafkaCoreProducerApplication.java . Use #file:KafkaKeyProducer.java to send 30 unique messages.

@@ -1,0 +1,35 @@
+Given this ksqlDB stream definition.
+
+```
+CREATE STREAM `s-ai-basic-data-three` (
+    myLocalDate VARCHAR,
+    myLocalDateCustomFormat VARCHAR,
+    myLocalTime VARCHAR,
+    myLocalTimeCustomFormat VARCHAR,
+    myLocalDateTime VARCHAR,
+    myLocalDateTimeCustomFormat VARCHAR,
+    myOffsetDateTime VARCHAR,
+    myOffsetDateTimeCustomFormat VARCHAR
+) WITH (
+    KAFKA_TOPIC = 't-ksql-basic-data-three',
+    VALUE_FORMAT = 'JSON'
+);
+```
+
+Each data from the stream is taken from JSON using the following structure:
+
+```
+{"myLocalDate":"2023-11-20","myLocalDateCustomFormat":"20 Nov 2023","myLocalTime":"19:00:46","myLoca
+lTimeCustomFormat":"07:00:46 PM","myLocalDateTime":"2021-10-28T20:18:29","myLocalDateTimeCustomFormat":"28-Oct-2021 08:18:29 PM","myOffsetDateTime":"2020-10
+-13T08:37:35.000+1000","myOffsetDateTimeCustomFormat":"13-Oct-2020 08:37:35.000 AM +1000"}
+```
+
+Create a ksqlDB query to show:
+ - 3 days after `myLocalDate`
+ - 2 hours after `myLocalTime`
+ - 4 days before `myLocalDateTime`
+ - 1 week before `myOffsetDateTime`
+ - 3 days after `myLocalDateCustomFormat`
+ - 2 hours after `myLocalTimeCustomFormat`
+ - 4 days before `myLocalDateTimeCustomFormat`
+ - 1 week before `myOffsetDateTimeCustomFormat`

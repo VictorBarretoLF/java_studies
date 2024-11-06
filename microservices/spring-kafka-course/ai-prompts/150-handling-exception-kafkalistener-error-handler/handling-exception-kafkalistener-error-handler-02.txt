@@ -1,0 +1,3 @@
+Using Spring, consume JSON string from topic t-food-order. Convert it to #file:FoodOrder.java .
+If the amount ordered exceeds the maximum amount, log an error message and throw an IllegalArgumentException. Otherwise, log the food order.
+Don't use any try-catch block.

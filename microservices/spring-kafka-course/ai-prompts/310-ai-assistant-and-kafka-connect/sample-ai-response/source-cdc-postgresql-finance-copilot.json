@@ -1,0 +1,20 @@
+{
+    "name": "cdc-postgres-fin-invoices-connector",
+    "config": {
+        "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+        "tasks.max": "1",
+        "database.hostname": "my-postgres.com",
+        "database.port": "5432",
+        "database.user": "postgres",
+        "database.password": "postgres",
+        "database.dbname": "postgres",
+        "database.server.name": "t-cdc-finance",
+        "table.include.list": "public.fin_invoices",
+        "plugin.name": "pgoutput",
+        "slot.name": "debezium_finance",
+        "tombstones.on.delete": "true",
+        "time.precision.mode": "connect",
+        "database.history.kafka.bootstrap.servers": "127.0.0.1:9092",
+        "database.history.kafka.topic": "schema-changes.t-cdc-finance"
+    }
+}

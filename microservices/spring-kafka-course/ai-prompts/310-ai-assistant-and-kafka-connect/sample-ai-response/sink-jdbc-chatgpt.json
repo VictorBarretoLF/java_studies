@@ -1,0 +1,21 @@
+{
+    "name": "jdbc-postgresql-sink-connector",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+        "tasks.max": "1",
+        "topics": "t-person-address-postgresql",
+        "connection.url": "jdbc:postgresql://my-postgres.com:5432/postgres",
+        "connection.user": "postgres",
+        "connection.password": "postgres",
+        "table.name.format": "kafka_person_address",
+        "auto.create": "true",
+        "auto.evolve": "true",
+        "insert.mode": "upsert",
+        "pk.fields": "address_id",
+        "pk.mode": "record_value",
+        "delete.enabled": "true",
+        "transforms": "dropNulls",
+        "transforms.dropNulls.type": "org.apache.kafka.connect.transforms.ValueToKey",
+        "transforms.dropNulls.fields": "address_id"
+    }
+}

@@ -1,0 +1,63 @@
+Create a Kafka Connect sink connector to send data to a PostgreSQL table. The connector should:
+ - Read data from t-spooldir-csv-demo.
+ - Send data to PostgreSQL at IP my-postgres.com, port 5432, database postgres, table kafka_employees.
+ - PostgreSQL username: "postgres", and password: "postgres".
+ - Create the database table if it does not exist yet.
+ - Based on the primary key (employee_id), update the record if it already exists. Otherwise, insert a new record.
+
+ This is the sample JSON for the data in the input topic:
+ ```
+ {
+    "schema": {
+        "type": "struct",
+        "fields": [
+ {
+                "type": "string",
+                "optional": true,
+                "field": "employee_id"
+ },
+ {
+                "type": "string",
+                "optional": true,
+                "field": "first_name"
+ },
+ {
+                "type": "string",
+                "optional": true,
+                "field": "last_name"
+ },
+ {
+                "type": "string",
+                "optional": true,
+                "field": "email"
+ },
+ {
+                "type": "string",
+                "optional": true,
+                "field": "gender"
+ },
+ {
+                "type": "string",
+                "optional": true,
+                "field": "birth_date"
+ },
+ {
+                "type": "string",
+                "optional": true,
+                "field": "salary"
+ }
+ ],
+        "optional": false,
+        "name": "com.github.jcustenborder.kafka.connect.model.Value"
+ },
+    "payload": {
+        "employee_id": "32-0818477",
+        "first_name": "Jeanelle",
+        "last_name": "Behning more update",
+        "email": "jbehning4@auda.org.au",
+        "gender": "F",
+        "birth_date": "1983-11-25",
+        "salary": "5365"
+ }
+}
+ ```

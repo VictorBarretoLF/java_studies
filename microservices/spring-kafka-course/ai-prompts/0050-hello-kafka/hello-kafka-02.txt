@@ -1,0 +1,1 @@
+Use #file:HelloKafkaAIProducer.java to send a random string in this main class.

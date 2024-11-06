@@ -1,0 +1,1 @@
+Generate a constructor using all fields, a no-argument constructor, getters, setters, and toString().

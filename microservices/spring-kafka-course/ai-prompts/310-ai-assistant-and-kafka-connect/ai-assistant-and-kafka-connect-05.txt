@@ -1,0 +1,9 @@
+Create a Kafka Connect source connector to query data from a PostgreSQL database, then send the query result to the Kafka topic. 
+The connector should:
+ - Connect to a Kafka cluster running on IP 127.0.01 at port 9092.
+ - Use the JDBC source connector.
+ - Send data to Kafka topics prefixed with "t-person-address-postgresql".
+ - Read from PostgreSQL at IP my-postgres.com, port 5432, database postgres.
+ - Query database every two hours
+ - Execute the SQL query: `SELECT p.*, pa.address_id, pa.address, pa.city, pa.postal_code FROM people p LEFT JOIN people_addresses pa ON p.person_id = pa.person_id ORDER BY p.person_id`.
+ - Use the address_id field on the query result as a key for the Kafka message.

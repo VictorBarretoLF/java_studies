@@ -1,0 +1,1 @@
+Create a Java Spring method to send hello string and "name" input to kafka topic t-hello.

@@ -1,0 +1,8 @@
+Modify this file.
+Create a method to generate dummy data that will run every 10 seconds using Spring.
+Inside the method:
+1. update the timestamp for all car location instances
+2. increase the car 1's & 3's distance by one
+3. decrease the car 2's distance by one
+4. send all car locations to kafka using #file:CarLocationProducer.java 
+5. log each sent message

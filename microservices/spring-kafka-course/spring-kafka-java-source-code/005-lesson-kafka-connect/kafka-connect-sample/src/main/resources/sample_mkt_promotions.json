@@ -1,0 +1,21 @@
+{
+    "payload": {
+        "before": {
+            "promotion_id": 1,
+            "promotion_name": "Enterprise-wide composite strategy",
+            "promotion_discount_rate": 8,
+            "is_active": "true"
+        },
+        "after": {
+            "promotion_id": 1,
+            "promotion_name": "Enterprise-wide composite strategy",
+            "promotion_discount_rate": 10,
+            "is_active": "true"
+        },
+        "source": {
+            "schema": "public",
+            "table": "mkt_promotions"
+        },
+        "op": "u"
+    }
+}

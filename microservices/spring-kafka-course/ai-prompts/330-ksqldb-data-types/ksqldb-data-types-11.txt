@@ -1,0 +1,7 @@
+I have Kafka topic t-ksql-basic-data-five. Each data in this topic has a JSON value like the one below.
+
+```
+{"myMapAlpha":{"0":"Map value alpha 0","1":"Map value alpha 1"},"myMapBeta":{"5af77fd1-0fac-4e28-8abf-9cdb48115743":"Map value beta 3","5f1f2837-74f5-4cfd-a2be-26fc68c16ef6":"Map value beta 4","a2d1713a-ff6c-49ad-b6c8-82b58fec548d":"Map value beta 1","2cf899b5-204c-4843-8e82-233818c22b56":"Map value beta 2","a5dc32e9-0487-4cb4-bd17-bbd4aa87a75f":"Map value beta 0"}}
+```
+
+Create a ksqlDB stream named `s-ai-basic-data-five` (including the backtick) from that topic. 
