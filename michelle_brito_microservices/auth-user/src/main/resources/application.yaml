@@ -19,3 +19,15 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         show_sql: true
+  output:
+    ansi:
+      enabled: always
+
+logging:
+  level:
+    com.auth-user: TRACE
+    root: INFO
+    # Caso precise de uma maior detalhamento da requisicao, altere o valor de INFO para DEBUG
+    org.springframework.web: DEBUG
+    # Caso precise de um maior detalhamento do SQL, altere o valor de INFO para DEBUG
+    org.hibernate: INFO
