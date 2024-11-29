@@ -9,13 +9,13 @@ import java.util.List;
 public class ThrowsValidationHandler implements ValidationHandler {
 
     @Override
-    public ValidationHandler append(final com.victorbarreto.domain.validation.Error anError) {
-        throw DomainException.withErrors(List.of(anError));
+    public ValidationHandler append(final Error anError) {
+        throw DomainException.with(anError);
     }
 
     @Override
     public ValidationHandler append(final ValidationHandler validationHandler) {
-        throw DomainException.withErrors(validationHandler.getErrors());
+        throw DomainException.with(validationHandler.getErrors());
     }
 
     @Override
@@ -23,7 +23,7 @@ public class ThrowsValidationHandler implements ValidationHandler {
         try {
             aValidation.validate();
         } catch (final Exception ex) {
-            throw DomainException.withErrors(List.of(new Error(ex.getMessage())));
+            throw DomainException.with(List.of(new Error(ex.getMessage())));
         }
 
         return this;
