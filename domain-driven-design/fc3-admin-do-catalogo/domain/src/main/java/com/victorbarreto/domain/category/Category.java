@@ -9,7 +9,7 @@ public class Category extends AggregateRoot<CategoryID> {
 
     private String name;
     private String description;
-    private Boolean isActive;
+    private boolean isActive;
     private Instant createdAt;
     private Instant updatedAt;
     private Instant deletedAt;
@@ -31,27 +31,10 @@ public class Category extends AggregateRoot<CategoryID> {
         this.deletedAt = aDeleteDate;
     }
 
-    private Category(
-            CategoryID anId,
-            String name,
-            String description,
-            Boolean isActive,
-            Instant createdAt,
-            Instant updatedAt,
-            Instant deletedAt) {
-        super(anId);
-        this.name = name;
-        this.description = description;
-        this.isActive = isActive;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.deletedAt = deletedAt;
-    }
-
     public static Category newCategory(
             final String aName,
             final String aDescription,
-            final Boolean isActive) {
+            final boolean isActive) {
         final var id = CategoryID.unique();
         final var now = Instant.now();
         return new Category(id, aName, aDescription, isActive, now, now, null);
@@ -60,6 +43,23 @@ public class Category extends AggregateRoot<CategoryID> {
     @Override
     public void validate(ValidationHandler validationHandler) {
         new CategoryValidator(this, validationHandler).validate();
+    }
+
+    public Category activate() {
+        this.deletedAt = null;
+        this.isActive = true;
+        this.updatedAt = Instant.now();
+        return this;
+    }
+
+    public Category deactivate() {
+        if (this.getDeletedAt() == null) {
+            this.deletedAt = Instant.now();
+        }
+
+        this.isActive = false;
+        this.updatedAt = Instant.now();
+        return this;
     }
 
     public CategoryID getId() {
@@ -74,7 +74,7 @@ public class Category extends AggregateRoot<CategoryID> {
         return description;
     }
 
-    public Boolean isActive() {
+    public boolean isActive() {
         return isActive;
     }
 
