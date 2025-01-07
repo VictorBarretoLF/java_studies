@@ -2,10 +2,8 @@ package com.victorbarreto.application;
 
 import com.victorbarreto.domain.category.Category;
 
-public class UseCase {
+public abstract class UseCase<IN, OUT> {
 
-    public Category execute() {
-        return Category.newCategory("name", "description", true);
-    }
+    public abstract OUT execute(IN anIn);
 
 }

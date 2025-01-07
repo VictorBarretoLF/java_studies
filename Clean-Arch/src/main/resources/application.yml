@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: Clean-Arch
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      authentication-database: admin
+      username: root
+      password: example
+      database: cleanarch
+
+logging:
+  level:
+    root: INFO
+    feign: DEBUG
+    org.springframework.cloud.openfeign: DEBUG
+
+server:
+    port: 8081
+
+viacep:
+    url: https://viacep.com.br/ws/
+    timeout: 5000
+
